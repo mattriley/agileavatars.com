@@ -834,7 +834,7 @@ const i=require("../src/module-initialisation"),t=initialise=initialize=i.init()
 },{"../src/module-initialisation":"CHWH"}],"DyXL":[function(require,module,exports) {
 module.exports=require("./ini/module-initialiser");
 },{"./ini/module-initialiser":"VW35"}],"UsDR":[function(require,module,exports) {
-module.exports=function(t){var a=t.config;return function(){var t=document.createElement("script"),e=a.analytics.google,n=e.enabled,r=e.trackingId;if(!n)return t;window.dataLayer=window.dataLayer||[];var o=function(){var t;return(t=dataLayer).push.apply(t,arguments)};return o("js",new Date),o("config",r),o("event","test",{event_category:"cat1"}),window.gtag=o,t.src="https://www.googletagmanager.com/gtag/js?id=".concat(r),t}};
+module.exports=function(t){var e=t.config;return function(){var t=document.createElement("script"),a=e.analytics.google,n=a.enabled,o=a.trackingId;if(!n)return t;function r(){dataLayer.push(arguments)}return window.dataLayer=window.dataLayer||[],r("js",new Date),r("config",o),r("event","test",{event_category:"cat1"}),window.gtag=r,t.src="https://www.googletagmanager.com/gtag/js?id=".concat(o),t}};
 },{}],"PSc0":[function(require,module,exports) {
 module.exports={__modulename:"analytics",google:require("./google")};
 },{"./google":"UsDR"}],"NdvU":[function(require,module,exports) {
@@ -1105,4 +1105,4 @@ module.exports=function(e){var n=e.config,o=e.services,t=e.components;o.system.i
 },{}],"Focm":[function(require,module,exports) {
 require("core-js/stable"),require("regenerator-runtime/runtime"),require("./css/*.css");var e=require("./js/initialise"),r=require("./js/start");r(e());
 },{"core-js/stable":"XqIO","regenerator-runtime/runtime":"QVnC","./css/*.css":"dsUX","./js/initialise":"AlE8","./js/start":"d6Si"}]},{},["Focm"], null)
-//# sourceMappingURL=/src.24fdafa3.js.map
+//# sourceMappingURL=/src.feb09c72.js.map
