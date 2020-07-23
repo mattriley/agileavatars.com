@@ -1,0 +1,30 @@
+name: Deploy
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Fetch latest release  
+      uses: dsaltares/fetch-gh-release-asset@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.AGILEAVATARS_PAT }}
+      with:
+        repo: mattriley/agileavatars-wip
+        version: latest
+        file: agileavatars.tar.gz
+        token: ${{ secrets.AGILEAVATARS_PAT }}
+    - name: Configure global git user
+      run: |
+        git config --global user.name github-actions
+        git config --global user.email github-actions@github.com        
+    - name: Deploy
+      run: ./deploy
