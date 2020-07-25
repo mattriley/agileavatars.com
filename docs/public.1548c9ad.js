@@ -208,7 +208,7 @@ module.exports=(({el:a,config:t,services:e})=>g=>{const{enabled:n,trackingId:o}=
 },{}],"b9Is":[function(require,module,exports) {
 module.exports={__modulename:"analytics",google:require("./google")};
 },{"./google":"QDxz"}],"ESUS":[function(require,module,exports) {
-module.exports=(({el:e,services:t})=>()=>{const n=e("a","choose-images",{textContent:"Choose images"}).addEventListener("click",e=>{e.preventDefault(),s.click()}),s=e("input",{type:"file",multiple:!0,accept:"image/*"}).addEventListener("change",()=>{t.tags.insertFileBatchAsync(s.files)});return e("span").append(n,s)});
+module.exports=(({el:e,services:t})=>(s={})=>{const n=s.getFiles||(e=>e.files),i=e("a","choose-images",{textContent:"Choose images"}).addEventListener("click",e=>{e.preventDefault(),a.click()}),a=e("input",{type:"file",multiple:!0,accept:"image/*"}).addEventListener("change",()=>{const e=n(a);t.tags.insertFileBatchAsync(e)});return e("span").append(i,a)});
 },{}],"RahF":[function(require,module,exports) {
 module.exports=(({el:a,services:e})=>()=>a("a","import-images-from-gravatar",{textContent:"Import images from Gravatar"}).addEventListener("click",()=>{e.settings.changeModal("gravatar")}));
 },{}],"xKH1":[function(require,module,exports) {
