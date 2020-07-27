@@ -378,7 +378,7 @@ module.exports=(({el:a,app:e,subscriptions:o})=>()=>{const n=Object.values(e.mod
 },{}],"RfQA":[function(require,module,exports) {
 module.exports=(({elements:e,services:s})=>(t={})=>{const{getFiles:l}=t,n=s.tags.insertFileBatchAsync;return e.dropzone({handleFiles:n,getFiles:l})});
 },{}],"yS9F":[function(require,module,exports) {
-module.exports=(({elements:e,services:n,subscriptions:t})=>({name:s,content:o,title:a})=>{const i=n.settings.clearModal;return e.modal({name:s,content:o,title:a,dismiss:i,onModalChange:e=>{t.settings.app.onChange("modal",n=>e(n)).invoke()}})});
+module.exports=(({elements:e,services:t,subscriptions:n})=>({name:s,content:i,title:o})=>{return e.modal({content:i,title:o,onVisibilityChange:e=>{n.settings.app.onChange("modal",t=>{e(t===s)}).invoke()}}).addEventListener("dismiss",t.settings.clearModal)});
 },{}],"HNb9":[function(require,module,exports) {
 module.exports={__modulename:"app",controlPanel:require("./control-panel"),gravatar:require("./gravatar"),header:require("./header"),modals:require("./modals"),styles:require("./styles"),tagList:require("./tag-list"),tips:require("./tips"),app:require("./app"),dropzone:require("./dropzone"),modal:require("./modal")};
 },{"./control-panel":"QGZ0","./gravatar":"M5ej","./header":"zis3","./modals":"Mwhu","./styles":"S2ND","./tag-list":"F3Gy","./tips":"Udeg","./app":"NePM","./dropzone":"RfQA","./modal":"yS9F"}],"mXCu":[function(require,module,exports) {
@@ -441,7 +441,7 @@ module.exports=(({elements:e})=>(l,n)=>{const a=e.el("span","label",{innerHTML:l
 },{}],"XJ7x":[function(require,module,exports) {
 module.exports=(({elements:p})=>({layout:e,components:t,componentArgs:n=[]})=>{const o=e.split("|").map(p=>p.trim().split(" ")).map(e=>{const o=e.map(p=>t[p](...n));return p.el("span","group").append(...o)});return p.el("div","layout").append(...o)});
 },{}],"XidZ":[function(require,module,exports) {
-module.exports=(({elements:e})=>({name:a,content:s,title:l,dismiss:n,onModalChange:d})=>{const{el:i}=e,t=i("span",{className:"dismiss"}).addEventListener("click",n),o=i("div",{className:"modal-title visible-".concat(Boolean(l))}).append(l,t),c=i("div",{className:"modal-content"}).append(s),m=i("div",{className:"modal-prompt"}).append(o,c).addEventListener("click",e=>e.stopPropagation()),p=i("div","modal-overlay visible-false").append(m).addEventListener("click",n);return d(e=>{p.className="modal-overlay visible-".concat(e===a)}),p});
+module.exports=(({elements:e})=>({content:a,title:s,onVisibilityChange:i})=>{const{el:t}=e,n=()=>{m.dispatchEvent(new CustomEvent("dismiss"))},l=t("span",{className:"dismiss"}).addEventListener("click",n),d=t("div",{className:"modal-title visible-".concat(Boolean(s))}).append(s,l),o=t("div",{className:"modal-content"}).append(a),c=t("div",{className:"modal-prompt"}).append(d,o).addEventListener("click",e=>e.stopPropagation()),m=t("div","modal-overlay visible-false").append(c).addEventListener("click",n);return i(e=>{m.className="modal-overlay visible-".concat(e)}),m});
 },{}],"KPsE":[function(require,module,exports) {
 module.exports=(({elements:e})=>({min:n,max:t,step:u,onChange:l})=>{let r=null;const a=()=>""===i.value,s=e=>()=>{if(e())return;const u=a()?r:parseInt(i.value),s=u<n?n:u>t?t:u;i.value=s,r=s,l&&l(s)},i=e.el("input",{type:"number",min:n,max:t,step:u}).addEventListener("input",s(a)).addEventListener("blur",s(()=>!1));return i});
 },{}],"D8mU":[function(require,module,exports) {
