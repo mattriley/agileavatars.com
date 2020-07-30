@@ -208,7 +208,7 @@ module.exports=(({el:a,config:t,services:e})=>g=>{const{enabled:n,trackingId:o}=
 },{}],"b9Is":[function(require,module,exports) {
 module.exports={__modulename:"analytics",google:require("./google")};
 },{"./google":"QDxz"}],"VbQv":[function(require,module,exports) {
-module.exports=(({el:e,services:t})=>(s={})=>{const i=s.getFiles||(e=>e.target.files),n=e("a","choose-images",{textContent:"Choose images"}).addEventListener("click",e=>{e.preventDefault(),a.click()}),a=e("input",{type:"file",multiple:!0,accept:"image/*"}).addEventListener("change",e=>{t.tags.insertFileBatchAsync(i(e))});return e("span").append(n,a)});
+module.exports=(({el:e,services:t})=>()=>{const n=e("a","choose-images",{textContent:"Choose images"}).addEventListener("click",e=>{e.preventDefault(),s.click()}),s=e("input",{type:"file",multiple:!0,accept:"image/*"}).addEventListener("change",()=>{t.tags.insertFileBatchAsync(s.files)});return e("span").append(n,s)});
 },{}],"KPBD":[function(require,module,exports) {
 module.exports=(({el:a,services:e})=>()=>a("a","import-images-from-gravatar",{textContent:"Import images from Gravatar"}).addEventListener("click",()=>{e.settings.changeModal("gravatar")}));
 },{}],"JC2F":[function(require,module,exports) {
@@ -376,7 +376,7 @@ module.exports={__modulename:"tips",badges:require("./badges"),images:require(".
 },{"./badges":"HM7l","./images":"Ajlz","./laminating":"OmyP","./multiples":"JGsF","./naming":"bD6z","./role-shortcut":"men1"}],"Sasz":[function(require,module,exports) {
 module.exports=(({el:e,components:o,subscriptions:a})=>()=>{const n=Object.values(o.modals).map(e=>e()),s=e("div").append(o.styles(),o.header(),o.dropzone().append(o.controlPanel(),o.tagList()),...n);return a.settings.app.onChange("modal",e=>{s.className="app modal-".concat(Boolean(e))}).invoke(),s});
 },{}],"TT7T":[function(require,module,exports) {
-module.exports=(({elements:e,services:s})=>(t={})=>{const{getFiles:i}=t;return e.dropzone({getFiles:i}).addEventListener("filedrop",e=>{s.tags.insertFileBatchAsync(e.detail.files)})});
+module.exports=(({elements:e,services:s})=>()=>e.dropzone().addEventListener("drop",e=>{s.tags.insertFileBatchAsync(e.dataTransfer.files)}));
 },{}],"Q8dz":[function(require,module,exports) {
 module.exports=(({elements:e,services:t,subscriptions:n})=>({name:s,content:i,title:o})=>{return e.modal({content:i,title:o,onVisibilityChange:e=>{n.settings.app.onChange("modal",t=>{e(t===s)}).invoke()}}).addEventListener("dismiss",t.settings.clearModal)});
 },{}],"mXCu":[function(require,module,exports) {
@@ -429,7 +429,7 @@ module.exports={__modulename:"tags",dataTransforms:require("./data-transforms"),
 },{"./data-transforms":"gD6s","./expand-instance-data":"esuX","./parse-email-expression":"X4dG","./parse-file-expression":"RHzl","./parse-tag-expression":"NYyW","./plan-instance-count-adjustment":"aM3f","./sort-instances-by-tag-then-mode":"dplF","./sort-tags-by-name":"jBKW","./sort-tags-by-role-then-name":"U4Pn"}],"ci2N":[function(require,module,exports) {
 module.exports={__modulename:"core",gravatar:require("./gravatar"),roles:require("./roles"),tags:require("./tags")};
 },{"./gravatar":"ScDe","./roles":"UErh","./tags":"HfGB"}],"cx4I":[function(require,module,exports) {
-module.exports=(({elements:t})=>n=>{const r=n.getFiles||(e=>e.dataTransfer.files),d=t.el("div","dropzone").addEventListener("dragenter",e,!1).addEventListener("dragover",e,!1).addEventListener("drop",t=>{const n=r(t);return d.dispatchEvent(new CustomEvent("filedrop",{detail:{files:n}})),e(t)},!1);return d});const e=e=>(e.stopPropagation(),e.preventDefault(),!1);
+module.exports=(({elements:e})=>()=>{const r=e=>e.preventDefault();return e.el("div","dropzone").addEventListener("dragenter",r).addEventListener("dragover",r).addEventListener("drop",r)});
 },{}],"nUqB":[function(require,module,exports) {
 module.exports=(({elements:e})=>()=>{const t=e.el("span").addEventListener("keydown",e=>{"Enter"===e.code&&t.dispatchEvent(new Event("blur"))});return t.setAttribute("contenteditable",!0),t});
 },{}],"HNNN":[function(require,module,exports) {
@@ -742,7 +742,7 @@ var e=arguments[3];Object.defineProperty(exports,"__esModule",{value:!0}),export
 },{"@sentry/types":"vYhp","@sentry/core":"TZM3","./client":"s6nm","./helpers":"PuX9","./eventbuilder":"yGRZ","./sdk":"nKpN","./version":"Qr3a"}],"cUe8":[function(require,module,exports) {
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var e={Integrations:!0,Transports:!0};exports.Transports=exports.Integrations=void 0;var r=u(require("tslib")),t=require("./exports");Object.keys(t).forEach(function(r){"default"!==r&&"__esModule"!==r&&(Object.prototype.hasOwnProperty.call(e,r)||Object.defineProperty(exports,r,{enumerable:!0,get:function(){return t[r]}}))});var n=require("@sentry/core"),o=require("@sentry/utils"),s=u(require("./integrations")),a=u(require("./transports"));function i(){if("function"!=typeof WeakMap)return null;var e=new WeakMap;return i=function(){return e},e}function u(e){if(e&&e.__esModule)return e;if(null===e||"object"!=typeof e&&"function"!=typeof e)return{default:e};var r=i();if(r&&r.has(e))return r.get(e);var t={},n=Object.defineProperty&&Object.getOwnPropertyDescriptor;for(var o in e)if(Object.prototype.hasOwnProperty.call(e,o)){var s=n?Object.getOwnPropertyDescriptor(e,o):null;s&&(s.get||s.set)?Object.defineProperty(t,o,s):t[o]=e[o]}return t.default=e,r&&r.set(e,t),t}exports.Transports=a;var p={},c=(0,o.getGlobalObject)();c.Sentry&&c.Sentry.Integrations&&(p=c.Sentry.Integrations);var f=r.__assign({},p,n.Integrations,s);exports.Integrations=f;
 },{"tslib":"vCxL","./exports":"QNOP","@sentry/core":"TZM3","@sentry/utils":"vnUD","./integrations":"vue0","./transports":"iexI"}],"LXGk":[function(require,module,exports) {
-const e=require("@sentry/browser");module.exports=(({window:t,config:r})=>(e.init(r.analytics.sentry),{sentry:e,getDate:()=>new t.Date,random:t.Math.random,fetch:(...e)=>t.fetch(...e),createFileReader:()=>new t.FileReader}));
+const e=require("@sentry/browser");module.exports=(({window:t,config:n})=>(e.init(n.analytics.sentry),{sentry:e,getDate:()=>new t.Date,random:t.Math.random,fetch:t.fetch.bind(t),createFileReader:()=>new t.FileReader}));
 },{"@sentry/browser":"cUe8"}],"g0CW":[function(require,module,exports) {
 module.exports={__modulename:"lib",components:require("./components"),core:require("./core"),elements:require("./elements"),services:require("./services"),storage:require("./storage"),config:require("./config"),io:require("./io")};
 },{"./components":"mXCu","./core":"ci2N","./elements":"D8mU","./services":"EAd8","./storage":"Xo6O","./config":"VXjF","./io":"LXGk"}],"bcAy":[function(require,module,exports) {
