@@ -204,7 +204,7 @@ var e=require("./_baseRest"),r=require("./_isIterateeCall");function t(t){return
 },{"./_baseRest":"f4Fl","./_isIterateeCall":"R62e"}],"yubd":[function(require,module,exports) {
 var e=require("./_baseMerge"),r=require("./_createAssigner"),i=r(function(r,i,s){e(r,i,s)});module.exports=i;
 },{"./_baseMerge":"WqwZ","./_createAssigner":"gmQJ"}],"VbQv":[function(require,module,exports) {
-module.exports=(({el:e,services:t})=>()=>{const n=e("a","choose-images",{textContent:"Choose images"}).addEventListener("click",e=>{e.preventDefault(),s.click()}),s=e("input",{type:"file",multiple:!0,accept:"image/*"}).addEventListener("change",()=>{t.tags.insertFileBatchAsync(s.files)});return e("span").append(n,s)});
+module.exports=(({el:e,services:t})=>()=>{const n=e("a","choose-images",{textContent:"Choose images"}).addEventListener("click",n=>{n.preventDefault();const s=(()=>e("input",{type:"file",multiple:!0,accept:"image/*"}).addEventListener("change",e=>{t.tags.insertFileBatchAsync(e.target.files)}))();s.click(),n.fileInput=s});return e("span").append(n)});
 },{}],"KPBD":[function(require,module,exports) {
 module.exports=(({el:a,services:e})=>()=>a("a","import-images-from-gravatar",{textContent:"Import images from Gravatar"}).addEventListener("click",()=>{e.settings.changeModal("gravatar")}));
 },{}],"JC2F":[function(require,module,exports) {
