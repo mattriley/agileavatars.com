@@ -274,7 +274,7 @@ var e=require("./_createCaseFirst"),r=e("toUpperCase");module.exports=r;
 },{"./_createCaseFirst":"prUu"}],"b6dz":[function(require,module,exports) {
 const e=require("lodash/upperFirst");module.exports=(({elements:n,services:t,subscriptions:s,config:i})=>o=>{const{min:r,max:a,step:p}=i.options[o],u=n.number({min:r,max:a,step:p}).addEventListener("input",e=>{t.settings.changeOption(o,e.target.value)});s.settings.options.onChange(o,e=>{u.value=e}).invoke();const c=e(o);return n.label(c,u)});
 },{"lodash/upperFirst":"SwE8"}],"mhwf":[function(require,module,exports) {
-module.exports=(({el:e,services:s,subscriptions:t})=>n=>{const o=e("span","shape-option ".concat(n),{title:"Change shape to ".concat(n)}).addEventListener("click",()=>{s.settings.changeOption("shape",n)});return t.settings.options.onChange("shape",e=>{o.classList.toggle("selected",n===e)}).invoke(),o});
+module.exports=(({el:e,services:s,subscriptions:t,config:n})=>o=>{const c=e("span","shape-option selected-false",{title:"Change shape to ".concat(o)}).addEventListener("click",()=>{s.settings.changeOption("shape",o)}),{borderRadius:a}=n.options.shapes[o]||0;return c.style.borderRadius="".concat(a,"%"),t.settings.options.onChange("shape",e=>{const s=o===e;c.classList.replace("selected-".concat(!s),"selected-".concat(s))}).invoke(),c});
 },{}],"R1WD":[function(require,module,exports) {
 module.exports={__modulename:"elements",numberOption:require("./number-option"),shapeOption:require("./shape-option")};
 },{"./number-option":"b6dz","./shape-option":"mhwf"}],"KP3V":[function(require,module,exports) {
