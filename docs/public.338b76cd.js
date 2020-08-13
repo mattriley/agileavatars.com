@@ -629,7 +629,7 @@ module.exports={__modulename:"roleList",roleCustomiser:require("./role-customise
 },{"./role-customiser":"HByV","./role-list":"Cqps"}],"MuTH":[function(require,module,exports) {
 module.exports=(({el:o,subscriptions:e})=>n=>{const c=o("style");return e.roles.onChange(n,"color",o=>{c.textContent="\n            .role".concat(n," .tag-image { border-color: ").concat(o,"; }            \n            .role").concat(n," .role-badge { background-color: ").concat(o,"; }\n        ")}).invoke(),c});
 },{}],"kuBU":[function(require,module,exports) {
-module.exports=(({el:e,styles:t,thirdPartyComponents:a,subscriptions:n})=>()=>{const s=e("div").append(a.vanillaPicker.style(),t.tagShape(),t.tagSize(),t.tagSpacing(),t.tagOutline());return n.roles.onInsert(e=>s.append(t.role(e))),n.tags.onInsert(e=>s.append(t.tagImage(e))),s});
+module.exports=(({el:e,styles:t,thirdPartyComponents:n,subscriptions:a})=>()=>{const s=e("div",{hidden:!0}).append(n.vanillaPicker.style(),t.tagShape(),t.tagSize(),t.tagSpacing(),t.tagOutline());return a.roles.onInsert(e=>s.append(t.role(e))),a.tags.onInsert(e=>s.append(t.tagImage(e))),s});
 },{}],"GGpU":[function(require,module,exports) {
 module.exports=(({el:t,subscriptions:e})=>a=>{const n=t("style");return e.tags.onChange(a,"image",t=>{n.textContent=".tag".concat(a," .tag-image { background-image: url(").concat(t,"); }")}),n});
 },{}],"q8PG":[function(require,module,exports) {
