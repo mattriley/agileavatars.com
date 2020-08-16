@@ -18,7 +18,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.AGILEAVATARS_PAT }}
       with:
-        repo: mattriley/agileavatars-wip
+        repo: mattriley/agileavatars
         version: latest
         file: agileavatars.tar.gz
         token: ${{ secrets.AGILEAVATARS_PAT }}
