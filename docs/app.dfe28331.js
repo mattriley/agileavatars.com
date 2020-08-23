@@ -138,7 +138,7 @@ module.exports=(({optionsBar:o,elements:s,subscriptions:t,lib:i,config:e})=>()=>
 },{}],"UD6G":[function(require,module,exports) {
 module.exports={elements:require("./elements"),options:require("./options"),optionsBar:require("./options-bar")};
 },{"./elements":"lZI8","./options":"nMID","./options-bar":"XdcD"}],"hlYz":[function(require,module,exports) {
-module.exports=(({elements:e,services:t,subscriptions:n})=>o=>{const s=e.editableSpan({className:"role-name role".concat(o)}).addEventListener("blur",e=>{const n=e.target.textContent;t.roles.changeRoleName(o,n)});return n.roles.onChange(o,"roleName",e=>{s.textContent=e}),s});
+module.exports=(({elements:e,services:t,subscriptions:n})=>o=>{const r=e.editableSpan("role-name role".concat(o)).addEventListener("blur",()=>{t.roles.changeRoleName(o,r.textContent)});return n.roles.onChange(o,"roleName",e=>{r.textContent=e}),r});
 },{}],"VXUt":[function(require,module,exports) {
 module.exports=(({el:e,components:o,services:r})=>l=>{const c=r.roles.getRole(l);return o.vanillaPicker({parent:e("div","color-picker"),color:c.color,onChange:e=>r.roles.changeRoleColor(l,e.hex)})});
 },{}],"FqKT":[function(require,module,exports) {
@@ -170,11 +170,11 @@ const e=require("vanilla-picker");module.exports=(({el:t})=>()=>t("style",{textC
 },{"vanilla-picker":"wQZv"}],"x5Z3":[function(require,module,exports) {
 module.exports={role:require("./role"),styles:require("./styles"),tagImage:require("./tag-image"),tagOutline:require("./tag-outline"),tagShape:require("./tag-shape"),tagSize:require("./tag-size"),tagSpacing:require("./tag-spacing"),vanillaPicker:require("./vanilla-picker")};
 },{"./role":"zGnl","./styles":"HP7z","./tag-image":"m4zC","./tag-outline":"D5Yt","./tag-shape":"eAFH","./tag-size":"cp0z","./tag-spacing":"icrm","./vanilla-picker":"ltZG"}],"tcCz":[function(require,module,exports) {
-module.exports=(({elements:e,services:t,subscriptions:n})=>s=>{const a=e.editableSpan({className:"role-name"}).addEventListener("blur",e=>{const n=e.target.textContent.trim();t.tags.changeTagInstanceRole(s,n)});return n.tagInstances.onChange(s,"roleName",e=>{a.textContent=e}),a});
+module.exports=(({elements:e,services:t,subscriptions:n})=>s=>{const a=e.editableSpan("role-name").addEventListener("blur",()=>{t.tags.changeTagInstanceRole(s,a.textContent)});return n.tagInstances.onChange(s,"roleName",e=>{a.textContent=e}),a});
 },{}],"Mcjq":[function(require,module,exports) {
 module.exports=(({el:e})=>()=>e("div","tag-image"));
 },{}],"O7h9":[function(require,module,exports) {
-module.exports=(({elements:e,services:t,subscriptions:n})=>a=>{const s=e.editableSpan({className:"tag-name"}).addEventListener("blur",()=>{t.tags.changeTagInstanceName(a,s.textContent)});return n.tagInstances.onChange(a,"tagName",e=>{s.textContent=e}),s});
+module.exports=(({elements:e,services:t,subscriptions:n})=>a=>{const s=e.editableSpan("tag-name").addEventListener("blur",()=>{t.tags.changeTagInstanceName(a,s.textContent)});return n.tagInstances.onChange(a,"tagName",e=>{s.textContent=e}),s});
 },{}],"XxSu":[function(require,module,exports) {
 module.exports={roleName:require("./role-name"),tagImage:require("./tag-image"),tagName:require("./tag-name")};
 },{"./role-name":"tcCz","./tag-image":"Mcjq","./tag-name":"O7h9"}],"XlEV":[function(require,module,exports) {
@@ -336,7 +336,7 @@ module.exports={gravatar:require("./gravatar"),roles:require("./roles"),tags:req
 },{"./gravatar":"XLMh","./roles":"b84z","./tags":"dGPy"}],"CIbM":[function(require,module,exports) {
 module.exports=(({elements:e})=>()=>{const r=e=>e.preventDefault();return e.el("div","dropzone").addEventListener("dragenter",r).addEventListener("dragover",r).addEventListener("drop",r)});
 },{}],"R1Qj":[function(require,module,exports) {
-module.exports=(({window:e,elements:t})=>(n={})=>{const d=t.el("span",n).addEventListener("keydown",t=>{"Enter"===t.code&&(t.preventDefault(),d.dispatchEvent(new e.Event("blur")))});return d.setAttribute("contenteditable",!0),d});
+module.exports=(({window:e,elements:t})=>n=>{const d=t.el("span",n).addEventListener("keydown",t=>{"Enter"===t.code&&(t.preventDefault(),d.dispatchEvent(new e.Event("blur")))});return d.setAttribute("contenteditable",!0),d});
 },{}],"s9iF":[function(require,module,exports) {
 function t(){this.__data__=[],this.size=0}module.exports=t;
 },{}],"yEjJ":[function(require,module,exports) {
