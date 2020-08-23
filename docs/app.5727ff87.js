@@ -21,7 +21,7 @@ var r=arguments[3],t=1/0,n=9007199254740991,e="[object Arguments]",o="[object Fu
 const e=require("lodash.merge"),r=require("lodash.pick");module.exports=((o,s)=>e(o,r(s,Object.keys(o))));
 },{"lodash.merge":"ueNQ","lodash.pick":"wnaz"}],"IT1o":[function(require,module,exports) {
 var process = require("process");
-var e=require("process");const r=require("./compose"),s=require("./collapse"),o=require("./override");module.exports=((e,c,i)=>{const t=(c=c||{}).overrides||{},n={},u=(c,i,u)=>{const a=e[c],p=r(a,i,c),q=s({[c]:p}),d=u?u(q[c]):q,l=Object.assign(q,d),v=o(l,t);return Object.assign(n,v),u?v:v[c]};return i?(i(u),n):u});
+var e=require("process");const r=require("./compose"),o=require("./collapse"),s=require("./override");module.exports=((e,c,i)=>{const t=(c=c||{}).overrides||{},u={},n=(c,i,n)=>{const p=e[c],q=r(p,i,c),a=o({[c]:q}),d=n?n(a[c]):a,l=s(d,t);return Object.assign(u,l),n?l:l[c]};return i?(i(n),u):n});
 },{"./compose":"IoKF","./collapse":"jy3B","./override":"LXkv","process":"pBGv"}],"tlYk":[function(require,module,exports) {
 module.exports=require("./src/composer");
 },{"./src/composer":"IT1o"}],"fs0G":[function(require,module,exports) {
