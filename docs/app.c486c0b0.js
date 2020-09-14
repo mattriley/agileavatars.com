@@ -633,7 +633,7 @@ module.exports=(({lib:t})=>r=>{var e;const a=t.util.upperFirst((null!==(e=r.tagN
 },{}],"XsFc":[function(require,module,exports) {
 module.exports={defaults:require("./defaults"),tagName:require("./tag-name")};
 },{"./defaults":"lLZt","./tag-name":"Yprg"}],"P1my":[function(require,module,exports) {
-module.exports=(({core:e,lib:s})=>t=>{if(!t.includes("@"))return e.tags.parseTagExpression(t);const r=t.indexOf("@"),[i]=t.substr(0,r).split("+"),l=t.lastIndexOf("+"),a=l>r,[n,o]=a?s.util.splitAt(t,l,1):[t];return{tagName:i,email:n,roleName:o}});
+module.exports=(({lib:e})=>l=>{const s=l.indexOf("@"),[t]=(s>-1?l.substr(0,s):l).split("+"),r=l.lastIndexOf("+"),i=r>s,[n,a]=i?e.util.splitAt(l,r,1):[l];return{email:n,username:t,emailOrUsername:null!=n?n:t,roleName:a}});
 },{}],"ftCf":[function(require,module,exports) {
 module.exports=(()=>t=>{const[p,e]=t.split("/").pop().match(/^(\d+)?(.+)/)[2].split(".")[0].split("+").map(t=>t.trim());return{tagName:p,roleName:e}});
 },{}],"K0cR":[function(require,module,exports) {
@@ -763,7 +763,7 @@ module.exports=(({core:e,services:s})=>a=>{const t=e.tags.parseFileExpression(a.
 },{}],"rDlZ":[function(require,module,exports) {
 module.exports=(({services:e})=>r=>Array.from(r).map(e.tags.insertFileAsync));
 },{}],"eCoE":[function(require,module,exports) {
-module.exports=(({core:a,services:e})=>async(r,t)=>{const{tagName:s,email:g,roleName:m}=a.tags.parseEmailExpression(r),c={displayName:s},i=await e.gravatar.fetchProfileAsync(g,c),l=a.gravatar.getNameFromProfile(i),o=e.tags.insertTag({tagName:l,roleName:m}),n=await e.gravatar.fetchImageAsync(null!=g?g:s,t);return e.tags.attachImageAsync(o,n)});
+module.exports=(({core:a,services:e})=>async(r,s)=>{const{email:t,username:m,emailOrUsername:g,roleName:i}=a.tags.parseEmailExpression(r),c={displayName:m},n=await e.gravatar.fetchProfileAsync(t,c),o=a.gravatar.getNameFromProfile(n),l=e.tags.insertTag({tagName:o,roleName:i}),y=await e.gravatar.fetchImageAsync(g,s);return e.tags.attachImageAsync(l,y)});
 },{}],"Ehrz":[function(require,module,exports) {
 module.exports=(({services:a,config:r,sentry:t})=>async(s,e)=>{try{a.gravatar.status.to.working();const c=r=>a.tags.insertGravatarAsync(r,e);await Promise.all(s.map(c)),a.gravatar.status.to.ready(),a.settings.clearModal()}catch(o){t.captureException(o),a.gravatar.status.to.error(r.gravatar.errorMessage)}});
 },{}],"z9xn":[function(require,module,exports) {
