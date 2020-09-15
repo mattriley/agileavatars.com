@@ -542,7 +542,7 @@ module.exports={roleCustomiser:require("./role-customiser"),roleList:require("./
 },{"./role-customiser":"glPV","./role-list":"Ughf"}],"sOa3":[function(require,module,exports) {
 module.exports=(({el:o,subscriptions:n})=>()=>{const e=o("div");return n.roles.onInsert(r=>{const t=o("style");n.roles.onChange(r,"color",o=>{t.textContent="\n                .role".concat(r," .tag-image { border-color: ").concat(o,"; }            \n                .role").concat(r," .role-name { background-color: ").concat(o,"; }\n            ")}),e.append(t)}),e});
 },{}],"m4zC":[function(require,module,exports) {
-module.exports=(({el:t,subscriptions:n})=>()=>{const e=t("div");return n.tags.onInsert(a=>{const o=t("style");n.tags.onChange(a,"image",t=>{o.textContent=".tag".concat(a," .tag-image { background-image: url(").concat(t,"); }")}),e.append(o)}),e});
+module.exports=(({el:t,subscriptions:n})=>()=>{const e=t("div");return n.tags.onInsert(a=>{const o=t("style");n.tags.onChange(a,"image",t=>{t&&(o.textContent=".tag".concat(a," .tag-image { background-image: url(").concat(t,"); }"))}),e.append(o)}),e});
 },{}],"D5Yt":[function(require,module,exports) {
 module.exports=(({el:t,subscriptions:e})=>()=>{const n=t("style");return e.settings.onChange("options","outline",t=>{n.textContent=t?"":".tag { border-color: transparent; }"}),n});
 },{}],"eAFH":[function(require,module,exports) {
@@ -588,7 +588,7 @@ module.exports=(({el:e})=>()=>e("div",{title:"Role shortcut",innerHTML:"\n      
 },{}],"Z4ho":[function(require,module,exports) {
 module.exports={badges:require("./badges"),images:require("./images"),laminating:require("./laminating"),multiples:require("./multiples"),naming:require("./naming"),roleShortcut:require("./role-shortcut")};
 },{"./badges":"qIEh","./images":"B2NA","./laminating":"yCFd","./multiples":"GDZB","./naming":"fvIg","./role-shortcut":"t3oJ"}],"WmnS":[function(require,module,exports) {
-module.exports=(({el:e,components:o,subscriptions:a,lib:p})=>()=>{const s=Object.values(o.styles).map(e=>e()),l=Object.values(o.modals).map(e=>e()),n=e("div","app").append(o.googleAnalytics(),e("div","styles",{hidden:!0}).append(...s),o.header(),o.dropzone().append(e("div","control-panel").append(o.imageUploadOptions(),o.roleList(),o.optionsBar()),o.tagList()),...l);return a.settings.onChange("app","modal",e=>{p.ui.toggleBoolClass(n,"modal",e)}),n});
+module.exports=(({el:e,components:o,subscriptions:a,lib:p})=>()=>{const s=Object.values(o.styles).map(e=>e()),l=Object.values(o.modals).map(e=>e()),n=e("div","app").append(e("div","styles").append(...s),e("div","modals").append(...l),o.googleAnalytics(),o.header(),o.dropzone().append(e("div","control-panel").append(o.imageUploadOptions(),o.roleList(),o.optionsBar()),o.tagList()));return a.settings.onChange("app","modal",e=>{p.ui.toggleBoolClass(n,"modal",e)}),n});
 },{}],"borC":[function(require,module,exports) {
 module.exports=(({elements:e,services:s})=>()=>e.dropzone().addEventListener("drop",e=>{s.tags.insertFileBatchAsync(e.dataTransfer.files)}));
 },{}],"WeqL":[function(require,module,exports) {
@@ -631,7 +631,7 @@ module.exports=(({lib:t})=>r=>{var e;const a=t.util.upperFirst((null!==(e=r.tagN
 },{}],"XsFc":[function(require,module,exports) {
 module.exports={defaults:require("./defaults"),tagName:require("./tag-name")};
 },{"./defaults":"lLZt","./tag-name":"Yprg"}],"P1my":[function(require,module,exports) {
-module.exports=(({lib:e})=>l=>{const s=l.indexOf("@"),[t]=(s>-1?l.substr(0,s):l).split("+"),r=l.lastIndexOf("+"),i=r>s,[n,a]=i?e.util.splitAt(l,r,1):[l];return{email:n,username:t,emailOrUsername:null!=n?n:t,roleName:a}});
+module.exports=(({lib:e})=>l=>{const s=l.indexOf("@"),t=s>-1,[r]=(t?l.substr(0,s):l).split("+"),i=l.lastIndexOf("+"),a=i>s,[m,n]=a?e.util.splitAt(l,i,1):[l];return{email:t?m:"",username:r,emailOrUsername:m,roleName:n}});
 },{}],"ftCf":[function(require,module,exports) {
 module.exports=(()=>t=>{const[p,e]=t.split("/").pop().match(/^(\d+)?(.+)/)[2].split(".")[0].split("+").map(t=>t.trim());return{tagName:p,roleName:e}});
 },{}],"K0cR":[function(require,module,exports) {
@@ -699,7 +699,7 @@ module.exports=(({stores:t})=>a=>{t.settings.setState("gravatar",{fallback:a})})
 },{}],"f9kg":[function(require,module,exports) {
 module.exports=(({stores:t})=>e=>{t.settings.setState("gravatar",{freetext:e})});
 },{}],"gidK":[function(require,module,exports) {
-module.exports=(({core:a,io:r})=>async(e,o)=>{const t=a.gravatar.buildImageUrl(e,o);return(await r.fetch(t)).blob()});
+module.exports=(({core:r,io:t})=>async(a,e)=>{const o=r.gravatar.buildImageUrl(a,e),s=await t.fetch(o);if(!s.ok)throw new Error("Unexpected Gravatar response status ".concat(s.status,"."));return s.blob()});
 },{}],"SkKq":[function(require,module,exports) {
 module.exports=(({core:t,io:r})=>async(a,e)=>{if(!a)return e;const o=t.gravatar.buildProfileUrl(a),s=await r.fetch(o);if(404===s.status)return e;if(!s.ok)throw new Error("Unexpected Gravatar response status ".concat(s.status,"."));const n=await s.json(),[c]=n.entry;return c});
 },{}],"BQBP":[function(require,module,exports) {
