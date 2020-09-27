@@ -647,7 +647,7 @@ module.exports=(({stores:s,util:e})=>e.mapValues(s,s=>s.subscriptions));
 },{}],"y3pl":[function(require,module,exports) {
 module.exports={subscriptions:require("./subscriptions")};
 },{"./subscriptions":"uETC"}],"x8lJ":[function(require,module,exports) {
-module.exports=(({window:e})=>(n,t,d={})=>{const s="string"==typeof t?t:void 0,a=t&&!s?t:d;s&&Object.assign(a,{className:s});const i=e.document.createElement(n),o=i.append.bind(i),c=i.addEventListener.bind(i);return Object.assign(i,{append:(...e)=>(o(...e),i),addEventListener:(...e)=>(c(...e),i)},a)});
+module.exports=(({window:e})=>(n,...t)=>{const s=e.document.createElement(n),a=t.map(e=>"string"==typeof e?{className:e}:e),r=["append","addEventListener"].map(e=>{const n=s[e].bind(s);return{[e]:(...e)=>(n(...e),s)}});return Object.assign(s,...a,...r)});
 },{}],"MBqT":[function(require,module,exports) {
 module.exports=(()=>(o,c,a)=>{o.classList.remove("".concat(c,"-").concat(Boolean(!a))),o.classList.add("".concat(c,"-").concat(Boolean(a)))});
 },{}],"A0KG":[function(require,module,exports) {
