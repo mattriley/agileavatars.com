@@ -498,13 +498,11 @@ module.exports=(()=>(e,o)=>e.sort((e,a)=>{const{roleName:r}=o(e.roleId),{roleNam
 module.exports={buildTag:require("./build-tag"),parseEmailExpression:require("./parse-email-expression"),parseFileExpression:require("./parse-file-expression"),parseTagExpression:require("./parse-tag-expression"),planTagInstanceAdjustment:require("./plan-tag-instance-adjustment"),sortTagInstancesByTagThenMode:require("./sort-tag-instances-by-tag-then-mode"),sortTagsByName:require("./sort-tags-by-name"),sortTagsByRoleThenName:require("./sort-tags-by-role-then-name")};
 },{"./build-tag":"PEt8","./parse-email-expression":"P1my","./parse-file-expression":"ftCf","./parse-tag-expression":"K0cR","./plan-tag-instance-adjustment":"CWbz","./sort-tag-instances-by-tag-then-mode":"uflP","./sort-tags-by-name":"dg51","./sort-tags-by-role-then-name":"gjk0"}],"aqvA":[function(require,module,exports) {
 module.exports={gravatar:require("./gravatar"),roles:require("./roles"),tags:require("./tags")};
-},{"./gravatar":"XLMh","./roles":"b84z","./tags":"dGPy"}],"NdS7":[function(require,module,exports) {
-module.exports=(({rels:e})=>()=>e);
-},{}],"E7Vx":[function(require,module,exports) {
+},{"./gravatar":"XLMh","./roles":"b84z","./tags":"dGPy"}],"E7Vx":[function(require,module,exports) {
 module.exports=(({stores:s,util:e})=>()=>e.mapValues(s,s=>s.list()));
 },{}],"hB56":[function(require,module,exports) {
-module.exports={diagram:require("./diagram"),dumpState:require("./dump-state")};
-},{"./diagram":"NdS7","./dump-state":"E7Vx"}],"CIbM":[function(require,module,exports) {
+module.exports={dumpState:require("./dump-state")};
+},{"./dump-state":"E7Vx"}],"CIbM":[function(require,module,exports) {
 module.exports=(({el:e})=>()=>{const r=e=>e.preventDefault();return e("div","dropzone").addEventListener("dragenter",r).addEventListener("dragover",r).addEventListener("drop",r)});
 },{}],"R1Qj":[function(require,module,exports) {
 module.exports=(({el:e,window:t})=>n=>{const d=()=>r.dispatchEvent(new t.Event("change")),r=e("span",n).addEventListener("blur",()=>{d()}).addEventListener("keydown",e=>{"Enter"===e.code&&(e.preventDefault(),d())});return r.setAttribute("contenteditable",!0),r});
