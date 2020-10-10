@@ -428,7 +428,7 @@ module.exports=(({el:o,tag:t,elements:e,services:n,subscriptions:s,config:a})=>c
 },{}],"Q0cy":[function(require,module,exports) {
 module.exports={components:require("./components"),tag:require("./tag")};
 },{"./components":"XxSu","./tag":"XlEV"}],"DD8f":[function(require,module,exports) {
-module.exports=(({el:e,tagList:t,services:n,subscriptions:s,util:a,config:o})=>()=>{const g=new Map,c=e("div","tag-list");s.tagInstances.onInsert(e=>{const n=t.tag(e);g.set(e,n),c.append(n),i()}),s.tagInstances.onBeforeRemove(e=>{g.get(e).remove(),g.delete(e)});const r=()=>{n.tags.sortTagInstances().forEach(e=>{c.append(g.get(e.id))})},i=a.debounce(r,o.debounce.sortTagList);return s.settings.onChange("options","sort",r),s.tagInstances.onChangeAny("tagName",i),s.tagInstances.onChangeAny("roleName",i),c});
+module.exports=(({el:e,tagList:t,services:n,subscriptions:s,dom:o,util:a,config:g})=>()=>{const c=new Map,i=e("div","tag-list");s.tagInstances.onInsert(e=>{const n=t.tag(e);c.set(e,n),i.append(n),d()}),s.tagInstances.onBeforeRemove(e=>{c.get(e).remove(),c.delete(e)});const r=()=>{const e=o.getDocument().activeElement;n.tags.sortTagInstances().forEach(e=>{i.append(c.get(e.id))}),e.focus()},d=a.debounce(r,g.debounce.sortTagList);return s.settings.onChange("options","sort",r),s.tagInstances.onChangeAny("tagName",d),s.tagInstances.onChangeAny("roleName",d),i});
 },{}],"oPep":[function(require,module,exports) {
 module.exports={tag:require("./tag"),tagList:require("./tag-list")};
 },{"./tag":"Q0cy","./tag-list":"DD8f"}],"qIEh":[function(require,module,exports) {
