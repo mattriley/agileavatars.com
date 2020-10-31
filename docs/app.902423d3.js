@@ -389,7 +389,7 @@ module.exports=(({el:e,ui:t,util:n})=>({min:a,max:i,step:p})=>{const s=()=>parse
 },{}],"UlrR":[function(require,module,exports) {
 module.exports={dropzone:require("./dropzone"),editableSpan:require("./editable-span"),label:require("./label"),layout:require("./layout"),modal:require("./modal"),number:require("./number")};
 },{"./dropzone":"CIbM","./editable-span":"R1Qj","./label":"iSrl","./layout":"BeEQ","./modal":"Ow04","./number":"scBH"}],"pdWs":[function(require,module,exports) {
-module.exports=(({window:e})=>({date:()=>new e.Date,fetch:(...a)=>e.fetch(...a),random:()=>e.Math.random,readAsDataUrlAsync:a=>new Promise(t=>{const d=new e.FileReader;d.addEventListener("load",()=>t(d.result)),d.readAsDataURL(a)})}));
+module.exports=(({window:e})=>({date:()=>new e.Date,fetch:(...a)=>e.fetch(...a),random:()=>e.Math.random(),createFileReader:()=>new e.FileReader}));
 },{}],"RfNK":[function(require,module,exports) {
 module.exports={io:require("./io")};
 },{"./io":"pdWs"}],"Xsuo":[function(require,module,exports) {
@@ -435,7 +435,7 @@ module.exports={changeModal:require("./change-modal"),changeOption:require("./ch
 },{"./change-modal":"lDz8","./change-option":"XZ5J","./clear-modal":"al0r","./get-gravatar":"JV9N"}],"ZWgm":[function(require,module,exports) {
 module.exports=(({core:s,config:e,stores:t,services:n})=>()=>{const o=t.tags.list(),a=t.settings.find("options"),r=Object.fromEntries(e.options.modes.map(s=>[s,a[s]]));s.tags.planTagInstanceAdjustment(o,r).forEach(s=>{(s={insert:[],remove:[],...s}).insert.forEach(n.tags.insertTagInstance),s.remove.forEach(n.tags.removeTagInstance)})});
 },{}],"GuzS":[function(require,module,exports) {
-module.exports=(({stores:a,io:s})=>t=>async e=>{const o=await s.readAsDataUrlAsync(t);a.tags.update(e,{image:o})});
+module.exports=(({stores:e,io:r})=>t=>a=>new Promise((s,o)=>{const d=r.createFileReader();d.readAsDataURL(t),d.addEventListener("load",()=>{const r=d.result;e.tags.update(a,{image:r}),s()}),d.addEventListener("error",()=>{o(d.error)})}));
 },{}],"N8N9":[function(require,module,exports) {
 module.exports=(({stores:e})=>o=>{const{tagId:a,mode:d}=o,{tagName:r,roleId:t}=e.tags.find(a),{roleName:m}=e.roles.find(t);return{tagId:a,tagName:r,roleId:t,roleName:m,mode:d}});
 },{}],"bQfD":[function(require,module,exports) {
